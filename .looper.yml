@@ -1,0 +1,43 @@
+tools:
+  jdk: 8
+  maven: 3.5.3
+      
+triggers:
+  - manual: 
+      name: Run Build Operation on Master
+      call: build
+  - manual:
+      name: Build and Deploy Snapshot from Master
+      call: deploy
+  - manual: 
+      name: Release Build from Master
+      call: release
+      
+#branches:
+#  call: build
+  
+flows:
+  default: # this is called when we click Build for specific branch from looper UI
+    - call: versions
+    - call: build
+
+  pr:
+    - echo "after pr, running build for $GITHUB_PR_URL"
+    - call: versions
+    - call: build
+  
+  versions:
+    -  (name MAVEN VERSION)mvn -v
+    -  (name JDK VERSION)java -version
+
+  build:
+    - mvn clean install
+  
+  deploy:
+    - mvn clean install
+    - mvn clean deploy
+    
+  release:
+    - mvn clean install
+    - mvn clean deploy
+    - mvn -B release:clean release:prepare release:perform release:update-versions

@@ -1,0 +1,73 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.school.course</groupId>
+  <artifactId>course-api</artifactId>
+  <packaging>jar</packaging>
+  <version>0.0.15-SNAPSHOT</version>
+  <name>school courses</name>
+  <description>api for course related activities</description>
+  
+  
+	<parent>
+	    <groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot-starter-parent</artifactId>
+	    <version>1.4.2.RELEASE</version>
+	</parent>
+	
+	<dependencies>
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<finalName>course-api</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+			    <groupId>org.apache.maven.plugins</groupId>
+			    <artifactId>maven-release-plugin</artifactId>
+			    <configuration>
+					<localCheckout>true</localCheckout>
+					<autoVersionSubmodules>true</autoVersionSubmodules>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	
+	<scm>
+		<connection>
+		scm:git:https://gecgithub01.walmart.com/a0g01em/sampleSpringApplication.git
+		</connection>
+		<developerConnection>
+		scm:git:https://gecgithub01.walmart.com/a0g01em/sampleSpringApplication.git
+		</developerConnection>
+		<url>
+		scm:git:https://gecgithub01.walmart.com/a0g01em/sampleSpringApplication.git
+		</url>
+	  <tag>HEAD</tag>
+  </scm>
+	
+	<distributionManagement>
+		<repository>
+			<id>pangaea_releases</id>
+			<url>
+			http://gec-maven-nexus.walmart.com/nexus/content/repositories/pangaea_releases
+			</url>
+		</repository>
+		<snapshotRepository>
+			<id>pangaea_snapshots</id>
+			<url>
+			http://gec-maven-nexus.walmart.com/nexus/content/repositories/pangaea_snapshots
+			</url>
+		</snapshotRepository>
+	</distributionManagement>
+	
+	<properties>
+		<java.version>1.8</java.version>
+	</properties>
+</project>
