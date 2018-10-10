@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.school.course</groupId>
   <artifactId>course-api</artifactId>
-  <packaging>jar</packaging>
+  <packaging>war</packaging>
   <version>0.0.15-SNAPSHOT</version>
   <name>school courses</name>
   <description>api for course related activities</description>
@@ -30,7 +30,11 @@
 				 <version>1.4.0</version>
 				 <configuration>
 				   <deploymentType>jar</deploymentType>
-				
+					<deploymentSlot>
+						<name>
+							staging
+						</name>
+					</deploymentSlot>
 				   <!-- configure app to run on port 80, required by App Service -->
 				   <appSettings>
 				     <property> 
