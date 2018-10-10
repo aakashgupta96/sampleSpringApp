@@ -29,7 +29,7 @@
 				 <artifactId>azure-webapp-maven-plugin</artifactId>
 				 <version>1.4.0</version>
 				 <configuration>
-				   <deploymentType>jar</deploymentType>
+				   <deploymentType>war</deploymentType>
 					<deploymentSlot>
 						<name>
 							staging
